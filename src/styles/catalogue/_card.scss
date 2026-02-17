@@ -3,7 +3,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(1, 200px);
+  grid-template-columns: repeat(1, vars.$card-width);
 
   align-items: start;
   justify-content: center;
@@ -14,39 +14,40 @@
 
 @media (min-width: 488px) {
   .wrapper {
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(2, vars.$card-width);
   }
 }
 
 @media (min-width: 768px) {
   .wrapper {
-    grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(3, vars.$card-width);
   }
 }
 
 @media (min-width: 1024px) {
   .wrapper {
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, vars.$card-width);
   }
 }
 
 .card {
   width: 100%;
-  height: 408px;
+  height: vars.$card-height;
   box-sizing: border-box;
 
   border: 1px solid vars.$grey-elements;
   border-radius: vars.$border-radius;
   font-family: vars.$font-family;
 
+   transition: transform 0.3s;
+
   &:hover {
     transform: scale(1.2);
-    transition: 0.3s;
   }
 
   &__image {
-    width: 160px;
-    height: 134px;
+    width: vars.$image-width;
+    height: vars.$image-height;
     display: block;
     margin: 32px auto 0;
   }
@@ -60,11 +61,11 @@
     letter-spacing: 0%;
     color: vars.$main-accent;
     margin: 40px 16px 0;
+    transition: color 0.3s;
   }
 
   &:hover .card__title {
     color: vars.$card-title;
-    transition: 0.3s;
   }
 
   &__code {
@@ -104,13 +105,17 @@
     @include mix.flex-box(center, center);
 
     margin: 16px;
-    padding: 12px 69px;
+    padding: vars.$button-padding;
 
     background-color: vars.$blue-accent;
     color: vars.$white-background;
 
     border: none;
     border-radius: vars.$border-radius;
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      border 0.3s;
 
     &-text {
       font-size: 14px;
@@ -124,7 +129,6 @@
       background-color: vars.$white-background;
       color: vars.$blue-accent;
       border: 1px solid vars.$blue-accent;
-      transition: 0.3s;
     }
   }
 }

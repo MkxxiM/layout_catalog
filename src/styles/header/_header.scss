@@ -14,12 +14,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 50px;
+  padding-right: vars.$big-margin;
 
   &__logo {
     display: inline-flex;
     align-items: center;
-    margin-left: 50px;
+    margin-left: vars.$big-margin;
   }
 
   &__nav {
@@ -34,7 +34,7 @@ body {
       text-align: center;
 
       & + & {
-        margin-left: 20px;
+        margin-left: vars.$small-margin;
       }
 
       &:first-child {
@@ -49,13 +49,14 @@ body {
     &-link {
       display: inline-flex;
       align-items: center;
-      height: 60px;
+      height: vars.$line-height;
       line-height: 1;
       color: vars.$nav-link-color;
       text-decoration: none;
       text-transform: uppercase;
+      transition: color 0.3s;
 
-      &--is-active {
+      &__is-active {
         position: relative;
         color: vars.$bluesky;
 
@@ -65,9 +66,9 @@ body {
           position: absolute;
           bottom: 0;
 
-          width: 37px;
-          height: 4px;
-          border-radius: 8px;
+          width: vars.$underline-width;
+          height: vars.$underline-height;
+          border-radius: vars.$border-radius;
 
           background-color: vars.$bluesky;
         }
@@ -76,7 +77,6 @@ body {
       &:hover {
         cursor: pointer;
         color: vars.$bluesky;
-        transition: 0.3s;
       }
     }
   }

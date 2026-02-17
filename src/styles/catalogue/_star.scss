@@ -11,11 +11,11 @@
     align-items: center;
 
     &-item {
-      width: 16px;
-      height: 16px;
+      width: vars.$star-size;
+      height: vars.$star-size;
       background-image: url('./images/star.svg');
       background-repeat: no-repeat;
-      margin-right: 4px;
+      margin-right: vars.$star-gap;
 
       &:last-child {
         margin-right: 0;
